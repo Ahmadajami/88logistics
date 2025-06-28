@@ -26,6 +26,7 @@
 		"@tailwindcss/vite": "^4.0.0",
 		"bits-ui": "^2.8.8",
 		"clsx": "^2.1.1",
+		"embla-carousel-svelte": "^8.6.0",
 		"eslint": "^9.18.0",
 		"eslint-config-prettier": "^10.0.1",
 		"eslint-plugin-svelte": "^3.0.0",
@@ -48,6 +49,7 @@
 		"@inlang/paraglide-js": "^2.0.0",
 		"@inlang/plugin-m-function-matcher": "^2.1.0",
 		"@inlang/plugin-message-format": "^4.0.0",
+		"embla-carousel-autoplay": "^8.6.0",
 		"mode-watcher": "^1.0.8",
 		"svelte-inview": "^4.0.4",
 		"svelte-motion": "^0.12.2"
