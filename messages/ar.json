@@ -1,4 +1,8 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"hello_world": "Hello, {name} from ar!"
+	"hello_world": "Hello, {name} from ar!",
+	"safe_neat_gopher_twirl": "تبديل السمة",
+	"polite_ornate_ox_link": "ضوء",
+	"even_super_boar_lead": "مظلم",
+	"fine_brief_alpaca_startle": "نظام"
 }

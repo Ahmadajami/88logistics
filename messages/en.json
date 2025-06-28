@@ -1,4 +1,8 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"hello_world": "Hello, {name} from en!"
+	"hello_world": "Hello, {name} from en!",
+	"safe_neat_gopher_twirl": "Toggle Theme",
+	"polite_ornate_ox_link": "Light",
+	"even_super_boar_lead": "Dark",
+	"fine_brief_alpaca_startle": "System"
 }
