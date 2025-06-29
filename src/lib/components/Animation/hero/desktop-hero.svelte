@@ -5,22 +5,22 @@
 
 	const sv = useElementScroll();
 	const { scrollY } = sv;
-	export let isMobile = false;
 
-	$: x = isMobile ? '0px' : useTransform(scrollY, [0, 500], ['0px', '-700px']);
+	let x = useTransform(scrollY, [0, 500], ['0px', '-700px']);
 </script>
 
 <section
 	bind:this={sv.ref}
+	data-lenis-prevent
 	class="hide-scrollbar h-[80vh] snap-y overflow-x-hidden overflow-y-scroll md:h-svh"
 >
 	<div class="w-full px-4">
 		<div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-10 md:flex-row">
 			<div class="flex-1 space-y-6 text-center md:text-left">
 				<h1 class="text-4xl leading-tight font-bold md:text-5xl">
-					Empower Your Workflow<br />with Modern Tools
+					Your Gateway to Global Logistics<br />in Syria
 				</h1>
-				<Button class=" rounded-2xl px-6 py-4 text-lg ">Get Started</Button>
+				<Button class=" rounded-2xl px-6 py-4 text-lg ">Partner With Us</Button>
 			</div>
 
 			<div class="relative my-2 flex-1 p-8">
@@ -61,9 +61,9 @@
 		>
 			<div class="flex-1 space-y-6 text-center md:text-left">
 				<h1 class="text-4xl leading-tight font-bold md:text-5xl">
-					Seamless Integration<br />with Smooth Animations
+					Connecting Global Partners<br />to the Syrian Market.
 				</h1>
-				<Button class=" rounded-2xl px-6 py-4 text-lg">Get Started</Button>
+				<Button class=" rounded-2xl px-6 py-4 text-lg">Discover Our Expertise</Button>
 			</div>
 
 			<!-- svelte-ignore element_invalid_self_closing_tag -->

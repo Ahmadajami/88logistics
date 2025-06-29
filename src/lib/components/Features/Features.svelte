@@ -1,16 +1,16 @@
 <script lang="ts">
 	import FeatureCard from '$lib/components/Features/feature-card.svelte';
 	import type { FeatureModel } from '$lib/interface/feature';
-	import { Laptop, ShipIcon, WarehouseIcon, Workflow } from '@lucide/svelte';
+	import { HandshakeIcon, Laptop, ShipIcon, WarehouseIcon, Workflow } from '@lucide/svelte';
 	import Heading from '$lib/components/Heading.svelte';
 	import BlureFade from '../Animation/BlureFade.svelte';
 	const feature_card_items: FeatureModel[] = [
 		{
 			id: 1,
-			href: '/',
-			title: 'Global Freight & Customs Solutions',
-			body: 'Seamlessly manage international import and export operations with our expert freight forwarding and customs brokerage services.',
-			icon: ShipIcon, // Represents international movement (ships, planes, trucks)
+			href: '/contact-us', // Can link to a contact page or a dedicated agency page
+			title: 'Global Agency Partnerships: Your Gateway to Syria',
+			body: 'Wondering how to establish your global brand in the Syrian market? We possess the expertise and infrastructure to facilitate your agency acquisition and efficiently distribute your products.',
+			icon: HandshakeIcon, // Represents partnership and collaboration (other suitable icons include GlobeIcon or CertificateIcon)
 		},
 		{
 			id: 2,

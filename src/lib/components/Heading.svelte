@@ -7,4 +7,4 @@
 >
 	{header}
 </h1>
-<p class="text-muted text-md mx-5 mb-4 sm:text-black dark:sm:text-white/45">{description}</p>
+<p class="mx-5 mb-4 text-black dark:text-white">{description}</p>
