@@ -22,7 +22,6 @@
 	<Card.Root class="w-full max-w-2xl">
 		<Card.Header>
 			<Card.Title>Fill in the form</Card.Title>
-			<SuperDebug data={$formData} />
 		</Card.Header>
 		<Card.Content>
 			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6">
