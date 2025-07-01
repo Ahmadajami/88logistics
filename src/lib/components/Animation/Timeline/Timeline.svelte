@@ -139,7 +139,7 @@
 							autoplay
 							loop
 							muted
-						/>
+						></video>
 					{:else}
 						<div
 							class="aspect-auto size-full rounded-xl border border-neutral-300/50 bg-gray-200 p-1"

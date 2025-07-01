@@ -89,18 +89,18 @@
 				</div>
 
 				<!-- Desktop CTA Button -->
-				<div class="hidden items-center space-x-4 md:flex">
+				<div class=" items-center space-x-4 md:flex">
 					<Theme />
 					<LanguagesNav />
 				</div>
 				<!-- Mobile Menu Sheet -->
 				<div class="md:hidden">
 					<Sheet.Root bind:open={isOpen}>
-						<Sheet.Trigger>
-							<Button variant="ghost" size="sm" class="p-2">
-								<Menu class="h-6 w-6" />
-								<span class="sr-only">Toggle menu</span>
-							</Button>
+						<Sheet.Trigger
+							class="hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50"
+						>
+							<Menu class="h-6 w-6" />
+							<span class="sr-only">Toggle menu</span>
 						</Sheet.Trigger>
 
 						<Sheet.Content
@@ -108,7 +108,7 @@
 							class="flex max-h-screen w-80 flex-col"
 						>
 							<Sheet.Header>
-								<div class="my-3 flex items-center justify-between border-b px-4 pt-4 pb-4">
+								<div class="mt-2 flex items-center justify-between border-b px-4 pt-4 pb-4">
 									<div class="flex items-center space-x-2">
 										<img src="/logo.png" alt="88Logistics mobile logo" class="h-8 w-auto" />
 										<span class="text-xl font-bold">88Logistics</span>
