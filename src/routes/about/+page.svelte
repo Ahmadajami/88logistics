@@ -53,7 +53,7 @@
 		<!-- Left: Office Info -->
 		<div>
 			<Heading header={m.minor_flat_dove_breathe()} description={m.proof_least_squid_accept()} />
-			<ul class="space-y-2 text-gray-700">
+			<ul class="space-y-2 text-gray-600 dark:text-neutral-400">
 				<li><strong>{m.lucky_wise_alligator_aim()}:</strong> {m.silly_vivid_duck_tend()}</li>
 				<li><strong>{m.neat_even_manatee_learn()}:</strong> ...</li>
 				<li><strong>{m.neat_trick_bumblebee_tickle()}:</strong> (123) 456-7890</li>

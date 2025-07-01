@@ -93,7 +93,9 @@
 </svelte:head>
 {#snippet enjoyed_by()}
 	<div class="mt-8">
-		<h2 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">Enjoyed by:</h2>
+		<h2 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">
+			{m.gray_lofty_dachshund_wish()}
+		</h2>
 
 		<div class="mt-4 flex gap-x-8">
 			<svg
@@ -237,7 +239,7 @@
 	</div>
 {/snippet}
 
-<Hero bind:isMobile  />
+<Hero bind:isMobile />
 
 <section id="88Logistics_Services">
 	<Services />
@@ -282,7 +284,7 @@
 						</li>
 
 						<li class="flex gap-x-3">
-							<Check class="mt-0.5 size-5 shrink-0 text-gray-600 dark:text-neutral-400" />
+							<Check class="text-muted mt-0.5 size-5 shrink-0" />
 
 							<span class="font-bold text-gray-600 dark:text-neutral-400">
 								{m.frail_smart_niklas_rest()}
