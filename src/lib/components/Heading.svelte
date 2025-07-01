@@ -3,7 +3,7 @@
 </script>
 
 <h1
-	class="z-10 mx-3 my-3.5 bg-gradient-to-br from-amber-400 to-yellow-600 bg-clip-text text-3xl font-semibold tracking-tight whitespace-pre-wrap text-transparent sm:text-4xl md:text-5xl dark:from-white dark:to-blue-900/40"
+	class="z-10 mx-3 bg-gradient-to-br from-amber-400 to-yellow-600 bg-clip-text text-3xl font-semibold tracking-tight whitespace-pre-wrap text-transparent sm:text-4xl md:text-5xl dark:from-white dark:to-blue-900/40"
 >
 	{header}
 </h1>

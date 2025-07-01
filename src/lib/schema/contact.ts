@@ -1,3 +1,4 @@
+import { m } from '$lib/paraglide/messages';
 import { z } from 'zod';
 
 /**
@@ -8,25 +9,25 @@ export const inquiryFormSchema = z.object({
 	/**
 	 * First name of the user. Must be a string and is required.
 	 */
-	firstname: z.string().min(1, { message: 'First Name is required.' }),
+	firstname: z.string().min(1, { message: m.knotty_arable_eagle_cook() }),
 
 	/**
 	 * Last name of the user. Must be a string and is required.
 	 */
-	lastname: z.string().min(1, { message: 'Last Name is required.' }),
+	lastname: z.string().min(1, { message: m.quick_these_panda_absorb() }),
 
 	/**
 	 * Work email of the user. Must be a valid email format and is required.
 	 */
 	workEmail: z
 		.string()
-		.email({ message: 'Invalid email address.' })
-		.min(1, { message: 'Work Email is required.' }),
+		.email({ message: m.brave_flat_giraffe_find() })
+		.min(1, { message: m.seemly_keen_wolf_attend() }),
 
 	/**
 	 * Company name. Must be a string and is required.
 	 */
-	company: z.string().min(1, { message: 'Company name is required.' }),
+	company: z.string().min(1, { message: m.away_solid_warthog_climb() }),
 
 	/**
 	 * Company website URL. Must be a string and can be an empty string if not provided.
@@ -38,13 +39,13 @@ export const inquiryFormSchema = z.object({
 	/**
 	 * Details provided by the user. Must be a string and is required.
 	 */
-	details: z.string().min(1, { message: 'Details are required.' }),
+	details: z.string().min(1, { message: m.orange_fancy_cat_dance() }),
 
 	/**
 	 * Privacy policy acceptance checkbox. Must be a boolean and strictly true to be valid.
 	 */
 	privacyPolicy: z.boolean().refine((val) => val === true, {
-		message: 'You must accept the Privacy Policy to submit the form.',
+		message: m.empty_brave_sparrow_strive(),
 	}),
 });
 

@@ -1,17 +1,14 @@
 <script lang="ts">
 	import BlureFade from '$lib/components/Animation/BlureFade.svelte';
-
 	import Hero from '$lib/components/Animation/hero/Hero.svelte';
 	import Heading from '$lib/components/Heading.svelte';
-
-	import Features from '$lib/components/Features/Features.svelte';
+	import { m } from '$lib/paraglide/messages';
+	import Services from '$lib/components/Services/Services.svelte';
 	import { Check } from '@lucide/svelte';
-
 	import Partners from '$lib/components/Partner/Partners.svelte';
 	import Team from '$lib/components/Team/Team.svelte';
 	import { type InquiryFormSchema } from '$lib/schema/contact';
-	import { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
-	import SuperDebug from 'sveltekit-superforms';
+	import { type SuperValidated, type Infer } from 'sveltekit-superforms';
 	import Contactus from '$lib/components/ConatactUs/Contactus.svelte';
 
 	let isMobile = $state(false);
@@ -34,56 +31,66 @@
 	const teamMembers = [
 		{
 			avatarSrc: '', // No image
-			avatarAlt: 'Atef Alajami Avatar',
+			avatarAlt: m.mushy_tiny_tortoise_grace(),
 			avatarFallback: 'AA',
-			name: 'Atef Alajami',
-			title: 'CEO/Owner',
+			name: m.fresh_busy_guppy_drop(),
+			title: m.drab_teal_capybara_tend(),
 		},
 		{
 			avatarSrc: '', // No image
 			avatarAlt: 'Dr. Anas Alajami Avatar',
 			avatarFallback: 'DA',
-			name: 'Dr. Anas Alajami',
-			title: 'Vice CEO',
+			name: m.even_grassy_peacock_zoom(),
+			title: m.few_awful_mammoth_sway(),
 		},
 		{
 			avatarSrc: '', // No image
-			avatarAlt: 'Eid Alajami Avatar',
+			avatarAlt: 'Moh.Eid Alajami Avatar',
 			avatarFallback: 'EA',
-			name: 'Eid Alajami',
-			title: 'Vice CEO',
+			name: m.large_large_baboon_comfort(),
+			title: m.few_awful_mammoth_sway(),
 		},
 		{
 			avatarSrc: '', // No image
 			avatarAlt: 'Wassem Alajami Avatar',
 			avatarFallback: 'WA',
-			name: 'Wassem Alajami',
-			title: 'Vice CEO',
+			name: m.zippy_simple_bat_list(),
+			title: m.few_awful_mammoth_sway(),
 		},
 		{
 			avatarSrc: '', // No image
-			avatarAlt: 'Dr. Saeed Alajami Avatar',
+			avatarAlt: 'Dr. Moh.Saeed Alajami Avatar',
 			avatarFallback: 'DS',
-			name: 'Dr. Saeed Alajami',
-			title: 'Department Manager',
+			name: m.true_light_millipede_kiss(),
+			title: m.active_even_lion_dig(),
 		},
 		{
 			avatarSrc: '', // No image
 			avatarAlt: 'Atef Alajami JR Avatar',
 			avatarFallback: 'AJ',
-			name: 'Atef Alajami JR',
-			title: 'HR Manager',
+			name: m.inner_smug_angelfish_care(),
+			title: m.born_that_bison_blend(),
 		},
 		{
 			avatarSrc: '', // No image
 			avatarAlt: 'Ahmad Alajami Avatar',
 			avatarFallback: 'AA',
-			name: 'Ahmad Alajami',
-			title: 'Software Engineer',
+			name: m.direct_round_jellyfish_support(),
+			title: m.agent_basic_porpoise_gaze(),
+		},
+		{
+			avatarSrc: '', // No image
+			avatarAlt: 'Basher Alajami Avatar',
+			avatarFallback: 'AA',
+			name: m.sharp_yummy_wombat_flow(),
+			title: m.knotty_chunky_cowfish_sing(),
 		},
 	];
 </script>
 
+<svelte:head>
+	<title>88Logistcs</title>
+</svelte:head>
 {#snippet enjoyed_by()}
 	<div class="mt-8">
 		<h2 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">Enjoyed by:</h2>
@@ -230,30 +237,31 @@
 	</div>
 {/snippet}
 
-<Hero bind:isMobile />
+<Hero bind:isMobile  />
 
-<Features />
-
-<section id="88Logistics Partner" class="container mx-auto my-8 px-4 sm:px-6 md:px-10">
+<section id="88Logistics_Services">
+	<Services />
+</section>
+<section id="88Logistics_Partners" class="container mx-auto my-8 px-4 sm:px-6 md:px-10">
 	<BlureFade delay={0.2}>
 		<Partners />
 	</BlureFade>
 </section>
 
-<section id="88Logistics Team">
+<section id="88Logistics_Team">
 	<Team {teamMembers} />
 </section>
 
-<section id="88Logistics Contact Us">
+<section id="ContactUs">
 	<div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
 		<!-- Grid -->
 		<div class="grid items-center gap-12 md:grid-cols-2">
 			<div>
-				<Heading header="Contact Us" description="Fill The Form To Contact 88Logistics" />
+				<Heading header={m.tiny_day_butterfly_buzz()} description={m.major_patchy_spider_file()} />
 
 				<div class="mt-8">
 					<h2 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">
-						What can I expect?
+						{m.same_arable_sheep_quell()}
 					</h2>
 
 					<ul class="mt-2 space-y-2">
@@ -261,7 +269,7 @@
 							<Check class="mt-0.5 size-5 shrink-0 text-gray-600 dark:text-neutral-400" />
 
 							<span class="font-bold text-gray-600 dark:text-neutral-400">
-								Tailored Logistics Solutions
+								{m.sound_lucky_rat_promise()}
 							</span>
 						</li>
 
@@ -269,7 +277,7 @@
 							<Check class="mt-0.5 size-5 shrink-0 text-gray-600 dark:text-neutral-400" />
 
 							<span class="font-bold text-gray-600 dark:text-neutral-400">
-								Deep Market Expertise in Syria
+								{m.merry_dark_seahorse_dare()}
 							</span>
 						</li>
 
@@ -277,7 +285,7 @@
 							<Check class="mt-0.5 size-5 shrink-0 text-gray-600 dark:text-neutral-400" />
 
 							<span class="font-bold text-gray-600 dark:text-neutral-400">
-								Opportunities for Global Agencies
+								{m.frail_smart_niklas_rest()}
 							</span>
 						</li>
 					</ul>
@@ -300,4 +308,3 @@
 		<!-- End Grid -->
 	</div>
 </section>
-

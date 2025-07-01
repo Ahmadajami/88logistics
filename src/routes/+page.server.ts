@@ -5,7 +5,6 @@ import { zod } from 'sveltekit-superforms/adapters';
 import type { Actions, PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
-	console.log('run0');
 	return {
 		form: await superValidate(zod(inquiryFormSchema)),
 	};
@@ -13,16 +12,18 @@ export const load: PageServerLoad = async () => {
 
 export const actions: Actions = {
 	default: async (event) => {
-		console.log('form Actions');
-
 		const form = await superValidate(event, zod(inquiryFormSchema));
+		
+
 		if (!form.valid) {
 			return fail(400, {
 				form,
+				succsess: false,
 			});
 		}
 		return {
 			form,
+			succsess: true,
 		};
 	},
 };

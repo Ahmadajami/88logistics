@@ -3,9 +3,12 @@
 	import * as Carousel from '$lib/components/ui/carousel/index.js';
 	import Autoplay from 'embla-carousel-autoplay';
 	import Meteors from '$lib/components/Animation/Meteors.svelte';
+	import { m } from '$lib/paraglide/messages';
+	import { getLocale } from '$lib/paraglide/runtime';
+	let dir = $derived(getLocale() === 'ar' ? 'rtl' : 'ltr');
 </script>
 
-<Heading header="Partners" description="All 88Logistics Partners" />
+<Heading header={m.elegant_same_meerkat_pinch()} description={m.dark_watery_javelina_relish()} />
 <div
 	class="bg-background relative flex h-fit w-full items-center justify-center overflow-hidden rounded-lg border p-8 sm:p-12 md:p-16 md:shadow-xl lg:p-20"
 >
@@ -13,6 +16,9 @@
 
 	<Carousel.Root
 		class="z-10 w-full"
+		opts={{
+			direction: dir,
+		}}
 		plugins={[
 			Autoplay({
 				delay: 2000,

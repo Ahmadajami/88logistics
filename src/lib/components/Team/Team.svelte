@@ -4,6 +4,7 @@
 
 	import * as Card from '$lib/components/ui/card/index.js';
 	import BorderBeam from '$lib/components/Animation/BorderBeam.svelte';
+	import { m } from '$lib/paraglide/messages';
 
 	interface TeamMember {
 		avatarSrc: string;
@@ -18,7 +19,7 @@
 
 <div class="mx-auto max-w-7xl px-4 py-10 sm:px-4 lg:px-6 lg:py-14">
 	<div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
-		<Heading header="Our Team" description="Creative people building the future." />
+		<Heading header={m.tense_mad_ox_dance()} description={m.spare_these_pug_thrive()} />
 	</div>
 
 	<Card.Root class="relative overflow-hidden rounded-xl p-6 md:p-8">

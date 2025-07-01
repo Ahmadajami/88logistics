@@ -1,12 +1,16 @@
 <script lang="ts">
 	import { Motion, useElementScroll, useTransform } from 'svelte-motion';
 	import { Button } from '$lib/components/ui/button/index.js';
-	import { mode } from 'mode-watcher';
-
+	import { getLocale } from '$lib/paraglide/runtime';
+	import { m } from '$lib/paraglide/messages';
+	
 	const sv = useElementScroll();
 	const { scrollY } = sv;
 
-	let x = useTransform(scrollY, [0, 500], ['0px', '-700px']);
+	$: x =
+		getLocale() === 'ar'
+			? useTransform(scrollY, [0, 500], ['0px', '700px'])
+			: useTransform(scrollY, [0, 500], ['0px', '-700px']);
 </script>
 
 <section
@@ -18,12 +22,13 @@
 		<div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-10 md:flex-row">
 			<div class="flex-1 space-y-6 text-center md:text-left">
 				<h1 class="text-4xl leading-tight font-bold md:text-5xl">
-					Your Gateway to Global Logistics<br />in Syria
+					{m.cozy_pink_racoon_edit()}<br class="rtl:mx-0.5 rtl:hidden" />{m.main_ok_camel_pinch()}
 				</h1>
-				<Button class=" rounded-2xl px-6 py-4 text-lg ">Partner With Us</Button>
+
+				<Button class=" rounded-2xl px-6 py-4 text-lg ">{m.less_male_jackdaw_cure()}</Button>
 			</div>
 
-			<div class="relative my-2 flex-1 p-8">
+			<div class="relative my-2 flex-1">
 				<Motion
 					style={{ y: scrollY, x: x }}
 					transition={{
@@ -31,25 +36,14 @@
 					}}
 					let:motion
 				>
-					{#if mode.current === 'light'}
-						<img
-							src="/logo.png"
-							alt="Hero"
-							width="300"
-							height="300"
-							class="h-min w-full rounded-2xl p-10 shadow-lg"
-							use:motion
-						/>
-					{:else}
-						<img
-							src="/light.png"
-							alt="Hero"
-							width="300"
-							height="300"
-							class="h-min w-full rounded-2xl p-10 shadow-lg"
-							use:motion
-						/>
-					{/if}
+					<img
+						src="/logo.png"
+						alt="Hero"
+						width="300"
+						height="300"
+						class="h-min w-full rounded-2xl p-10 shadow-lg"
+						use:motion
+					/>
 				</Motion>
 			</div>
 		</div>
@@ -61,9 +55,9 @@
 		>
 			<div class="flex-1 space-y-6 text-center md:text-left">
 				<h1 class="text-4xl leading-tight font-bold md:text-5xl">
-					Connecting Global Partners<br />to the Syrian Market.
+					{m.glad_whole_vole_radiate()}<br />{m.weird_muddy_vole_spur()}
 				</h1>
-				<Button class=" rounded-2xl px-6 py-4 text-lg">Discover Our Expertise</Button>
+				<Button class=" rounded-2xl px-6 py-4 text-lg">{m.mushy_main_millipede_startle()}</Button>
 			</div>
 
 			<!-- svelte-ignore element_invalid_self_closing_tag -->
