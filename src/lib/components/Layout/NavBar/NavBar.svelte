@@ -90,88 +90,86 @@
 
 				<!-- Desktop CTA Button & Mobile Menu -->
 				<div class="flex items-center space-x-4">
-					<div class="flex items-center space-x-4">
-						<!-- Theme button - always visible -->
-						<Theme />
+					<!-- Theme button - always visible -->
+					<Theme />
 
-						<!-- Desktop only components -->
-						<div class="hidden md:flex">
-							<LanguagesNav />
-						</div>
+					<!-- Desktop only components -->
+					<div class="hidden md:flex">
+						<LanguagesNav />
+					</div>
 
-						<!-- Mobile Menu Sheet -->
-						<div class="block md:hidden">
-							<Sheet.Root bind:open={isOpen}>
-								<Sheet.Trigger class="hover:bg-accent hover:text-accent-foreground h-9 w-9 p-0">
-									<Menu class="h-6 w-6" />
-									<span class="sr-only">Toggle menu</span>
-								</Sheet.Trigger>
+					<!-- Mobile Menu Sheet -->
+					<div class="block md:hidden">
+						<Sheet.Root bind:open={isOpen}>
+							<Sheet.Trigger>
+								<Menu class="h-6 w-6" />
+								<span class="sr-only">Toggle menu</span>
+							</Sheet.Trigger>
 
-								<Sheet.Content
-									side={getLocale() === 'ar' ? 'right' : 'left'}
-									class="flex max-h-screen w-80 flex-col"
-								>
-									<Sheet.Header class="border-b">
-										<div class="flex items-center justify-between px-4 py-4">
-											<div class="flex items-center space-x-2">
-												<img src="/logo.png" alt="88Logistics mobile logo" class="h-8 w-auto" />
-												<span class="text-xl font-bold">88Logistics</span>
-											</div>
+							<Sheet.Content
+								side={getLocale() === 'ar' ? 'right' : 'left'}
+								class="flex h-screen w-80 flex-col"
+							>
+								<Sheet.Header class="border-b">
+									<div class="flex items-center justify-between px-4 py-4">
+										<div class="flex items-center space-x-2">
+											<img src="/logo.png" alt="88Logistics mobile logo" class="h-8 w-auto" />
+											<span class="text-xl font-bold">88Logistics</span>
 										</div>
-									</Sheet.Header>
-
-									<!-- Flex layout for scrollable content and fixed footer -->
-									<div class="flex flex-1 flex-col">
-										<!-- Scrollable Navigation -->
-										<div class="flex-1 space-y-2 overflow-y-auto px-4 py-6">
-											{#each navigationItems as item}
-												{@const Icon = item.icon}
-												<a
-													href={item.href}
-													onclick={closeSheet}
-													class="text-foreground/80 hover:bg-accent hover:text-foreground flex items-center space-x-3 rounded-lg px-3 py-3 transition-all duration-200"
-												>
-													<Icon class="h-5 w-5" />
-													<span class="font-medium">{item.title}</span>
-												</a>
-											{/each}
-										</div>
-
-										<!-- Fixed Footer -->
-										<Sheet.Footer class="flex flex-col space-y-3 border-t px-4 py-4">
-											<Button
-												onclick={() => {
-													setLocale('ar');
-													closeSheet();
-												}}
-												size="lg"
-												variant="ghost"
-												class="justify-start"
-											>
-												<span class="mr-2">{m.silly_small_kestrel_commend()}</span>
-												<span class="size-4">
-													<img src={syria} alt="Arabic language Flag" />
-												</span>
-											</Button>
-											<Button
-												onclick={() => {
-													setLocale('en');
-													closeSheet();
-												}}
-												size="lg"
-												variant="ghost"
-												class="justify-start"
-											>
-												<span class="mr-2">{m.mushy_teal_carp_grin()}</span>
-												<span class="size-4">
-													<img src={uk} alt="English language Flag" />
-												</span>
-											</Button>
-										</Sheet.Footer>
 									</div>
-								</Sheet.Content>
-							</Sheet.Root>
-						</div>
+								</Sheet.Header>
+
+								<!-- Flex layout for scrollable content and fixed footer -->
+								<div class="flex min-h-0 flex-1 flex-col">
+									<!-- Scrollable Navigation -->
+									<div class="flex-1 space-y-2 overflow-y-auto px-4 py-6">
+										{#each navigationItems as item}
+											{@const Icon = item.icon}
+											<a
+												href={item.href}
+												onclick={closeSheet}
+												class="text-foreground/80 hover:bg-accent hover:text-foreground flex items-center space-x-3 rounded-lg px-3 py-3 transition-all duration-200"
+											>
+												<Icon class="h-5 w-5" />
+												<span class="font-medium">{item.title}</span>
+											</a>
+										{/each}
+									</div>
+
+									<!-- Fixed Footer -->
+									<Sheet.Footer class="flex flex-col space-y-0.5 border-t px-4 py-4">
+										<Button
+											onclick={() => {
+												setLocale('ar');
+												closeSheet();
+											}}
+											size="lg"
+											variant="ghost"
+											class="justify-start"
+										>
+											<span class="mr-2">{m.silly_small_kestrel_commend()}</span>
+											<span class="size-4">
+												<img src={syria} alt="Arabic language Flag" />
+											</span>
+										</Button>
+										<Button
+											onclick={() => {
+												setLocale('en');
+												closeSheet();
+											}}
+											size="lg"
+											variant="ghost"
+											class="justify-start"
+										>
+											<span class="mr-2">{m.mushy_teal_carp_grin()}</span>
+											<span class="size-4">
+												<img src={uk} alt="English language Flag" />
+											</span>
+										</Button>
+									</Sheet.Footer>
+								</div>
+							</Sheet.Content>
+						</Sheet.Root>
 					</div>
 				</div>
 			</div>
