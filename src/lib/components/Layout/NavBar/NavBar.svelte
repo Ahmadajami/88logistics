@@ -16,6 +16,7 @@
 	import LanguagesNav from './languages-nav.svelte';
 	import syria from '$lib/icon/sy.svg';
 	import uk from '$lib/icon/gb.svg';
+	import Separator from '$lib/components/ui/separator/separator.svelte';
 
 	let isOpen = $state(false);
 	type NavItem = {
@@ -92,11 +93,9 @@
 				<div class="flex items-center space-x-4">
 					<!-- Theme button - always visible -->
 					<Theme />
-
-					<!-- Desktop only components -->
-
-					<LanguagesNav />
-
+					<div class="hidden md:block">
+						<LanguagesNav />
+					</div>
 					<!-- Mobile Menu Sheet -->
 					<div class="block md:hidden">
 						<Sheet.Root bind:open={isOpen}>
@@ -107,7 +106,7 @@
 
 							<Sheet.Content
 								side={getLocale() === 'ar' ? 'right' : 'left'}
-								class="flex h-screen w-80 flex-col"
+								class="flex h-svh w-80 flex-col"
 							>
 								<Sheet.Header class="border-b">
 									<div class="flex items-center justify-between px-4 py-4">
@@ -135,6 +134,35 @@
 										{/each}
 									</div>
 								</div>
+								<Separator />
+								<Sheet.Footer>
+									<div class="flex flex-col">
+										<Button
+											size="sm"
+											variant="ghost"
+											onclick={() => {
+												setLocale('ar');
+											}}
+										>
+											{m.silly_small_kestrel_commend()}
+											<span class="size-4">
+												<img src={syria} alt="Arabic languge Flag" />
+											</span>
+										</Button>
+										<Button
+											size="sm"
+											variant="ghost"
+											onclick={() => {
+												setLocale('en');
+											}}
+										>
+											{m.mushy_teal_carp_grin()}
+											<span class="size-4">
+												<img src={uk} alt="English languge Flag" />
+											</span>
+										</Button>
+									</div>
+								</Sheet.Footer>
 							</Sheet.Content>
 						</Sheet.Root>
 					</div>
