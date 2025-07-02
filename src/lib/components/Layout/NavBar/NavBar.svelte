@@ -94,9 +94,8 @@
 					<Theme />
 
 					<!-- Desktop only components -->
-					<div class="hidden md:flex">
-						<LanguagesNav />
-					</div>
+
+					<LanguagesNav />
 
 					<!-- Mobile Menu Sheet -->
 					<div class="block md:hidden">
@@ -135,38 +134,6 @@
 											</a>
 										{/each}
 									</div>
-
-									<!-- Fixed Footer -->
-									<Sheet.Footer class="flex flex-col space-y-0.5 border-t px-4 py-4">
-										<Button
-											onclick={() => {
-												setLocale('ar');
-												closeSheet();
-											}}
-											size="lg"
-											variant="ghost"
-											class="justify-start"
-										>
-											<span class="mr-2">{m.silly_small_kestrel_commend()}</span>
-											<span class="size-4">
-												<img src={syria} alt="Arabic language Flag" />
-											</span>
-										</Button>
-										<Button
-											onclick={() => {
-												setLocale('en');
-												closeSheet();
-											}}
-											size="lg"
-											variant="ghost"
-											class="justify-start"
-										>
-											<span class="mr-2">{m.mushy_teal_carp_grin()}</span>
-											<span class="size-4">
-												<img src={uk} alt="English language Flag" />
-											</span>
-										</Button>
-									</Sheet.Footer>
 								</div>
 							</Sheet.Content>
 						</Sheet.Root>
