@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button/index.js';
 	import { m } from '$lib/paraglide/messages';
-	
+	import logo from '$lib/images/88-logistics-logo.webp';
+	import fallbacklogo from '$lib/images/88-logistics-logo-fallback.png';
 </script>
 
 <section class="hide-scrollbar h-[80vh] snap-y overflow-x-hidden overflow-y-scroll md:h-svh">
@@ -9,13 +10,16 @@
 		<div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-10 md:flex-row">
 			<!-- Image shown on mobile only -->
 			<div class="relative my-2 flex-1 p-8 md:hidden">
-				<img
-					src="/logo.png"
-					alt="Hero"
-					width="300"
-					height="300"
-					class="h-min w-full rounded-2xl p-10 shadow-lg"
-				/>
+				<picture>
+					<source srcset={logo} type="image/webp" />
+					<img
+						src={fallbacklogo}
+						alt="88Logistics company logo"
+						class="h-min w-full rounded-2xl p-10 shadow-lg"
+						width="300"
+						height="300"
+					/>
+				</picture>
 			</div>
 
 			<div class=" flex-1 space-y-6 text-center md:text-left">

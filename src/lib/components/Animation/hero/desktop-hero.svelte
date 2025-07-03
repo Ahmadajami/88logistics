@@ -3,7 +3,9 @@
 	import { Button } from '$lib/components/ui/button/index.js';
 	import { getLocale } from '$lib/paraglide/runtime';
 	import { m } from '$lib/paraglide/messages';
-	
+	import logo from '$lib/images/88-logistics-logo.webp';
+	import fallbacklogo from '$lib/images/88-logistics-logo-fallback.png';
+
 	const sv = useElementScroll();
 	const { scrollY } = sv;
 
@@ -36,14 +38,17 @@
 					}}
 					let:motion
 				>
-					<img
-						src="/logo.png"
-						alt="Hero"
-						width="300"
-						height="300"
-						class="h-min w-full rounded-2xl p-10 shadow-lg"
-						use:motion
-					/>
+					<picture>
+						<source srcset={logo} type="image/webp" use:motion />
+						<img
+							src={fallbacklogo}
+							alt="88Logistics Company Logo in hero section"
+							width="300"
+							height="300"
+							class="h-min w-full rounded-2xl p-10"
+							use:motion
+						/>
+					</picture>
 				</Motion>
 			</div>
 		</div>

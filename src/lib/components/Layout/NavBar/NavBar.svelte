@@ -1,13 +1,4 @@
 <script lang="ts">
-	import {
-		Menu,
-		Handshake,
-		Info,
-		Users,
-		Settings,
-		Mail,
-		type Icon as IconType,
-	} from '@lucide/svelte';
 	import * as Sheet from '$lib/components/ui/sheet/index.js';
 	import { Button } from '$lib/components/ui/button';
 	import { m } from '$lib/paraglide/messages';
@@ -16,44 +7,76 @@
 	import LanguagesNav from './languages-nav.svelte';
 	import syria from '$lib/icon/sy.svg';
 	import uk from '$lib/icon/gb.svg';
+
+	import logo from '$lib/images/88-logistics-logo.webp';
+	import fallbacklogo from '$lib/images/88-logistics-logo-fallback.png';
+
 	import Separator from '$lib/components/ui/separator/separator.svelte';
+
+	//Icons Import
+	import Menu from '@lucide/svelte/icons/menu';
+	import Handshake from '@lucide/svelte/icons/handshake';
+	import Settings from '@lucide/svelte/icons/settings';
+	import Mail from '@lucide/svelte/icons/mail';
+	import Users from '@lucide/svelte/icons/users';
+	import Info from '@lucide/svelte/icons/info';
+	import { type Icon as IconType } from '@lucide/svelte';
+	import { page } from '$app/state';
 
 	let isOpen = $state(false);
 	type NavItem = {
 		title: string;
 		href?: string;
-		disabled?: boolean;
+		selected?: boolean;
 		external?: boolean;
 		label?: string;
 		icon?: typeof IconType;
 	};
-	const navigationItems: NavItem[] = [
+	const navigationItems: NavItem[] = $state([
 		{
 			title: m.next_fluffy_donkey_gaze(),
-			href: localizeHref('#88Logistics_Services'),
+			href: localizeHref('/#88Logistics_Services'),
 			icon: Settings,
+			selected: false,
 		},
 		{
 			title: m.smart_cool_platypus_dig(),
-			href: localizeHref('#88Logistics_Partners'),
+			href: localizeHref('/#88Logistics_Partners'),
 			icon: Handshake,
+			selected: false,
 		},
 		{
 			title: m.upper_same_mule_chop(),
-			href: localizeHref('#88Logistics_Team'),
+			href: localizeHref('/#88Logistics_Team'),
 			icon: Users,
+			selected: false,
 		},
 		{
 			title: m.new_ok_pelican_pull(),
-			href: localizeHref('#ContactUs'),
+			href: localizeHref('/#ContactUs'),
 			icon: Mail,
+			selected: false,
 		},
 		{
 			title: m.known_slimy_giraffe_zap(),
 			href: localizeHref('/about'),
 			icon: Info,
+			selected: false,
 		},
-	];
+	]);
+
+	$effect(() => {
+		// Get the current URL's hash or pathname
+		const currentPath = page.url.hash || localizeHref(page.url.pathname);
+
+		// Iterate through the items and update the 'selected' property directly.
+		navigationItems.forEach((navItem) => {
+			navItem.selected = navItem.href === currentPath;
+		});
+
+		// You can log the updated array to see the changes
+		console.log('Navigation items updated:', navigationItems);
+	});
 
 	function closeSheet() {
 		isOpen = false;
@@ -68,8 +91,21 @@
 			<div class="flex h-16 items-center justify-between">
 				<!-- Logo -->
 				<div class="flex items-center">
-					<a href={localizeHref('/')} class="flex items-center space-x-2">
-						<img src="/logo.png" alt="88Logistics company logo" class="size-8 rounded-sm" />
+					<a
+						href={localizeHref('/')}
+						class="flex items-center space-x-2"
+						aria-label="88Logistics Homepage"
+					>
+						<picture>
+							<source srcset={logo} type="image/webp" />
+							<img
+								src={fallbacklogo}
+								alt="88Logistics company logo"
+								class="size-8 rounded-sm"
+								width="32"
+								height="32"
+							/>
+						</picture>
 						<span class="sr-only">
 							<h1>88Logistics - Freight and Logistics Solutions</h1>
 						</span>
@@ -82,7 +118,8 @@
 					{#each navigationItems as item}
 						<a
 							href={item.href}
-							class="text-foreground/80 hover:text-foreground font-medium transition-colors duration-200"
+							class:text-primary={item.selected}
+							class="   text-foreground/80 hover:text-foreground font-medium transition-colors duration-200"
 						>
 							{item.title}
 						</a>
@@ -111,7 +148,17 @@
 								<Sheet.Header class="border-b">
 									<div class="flex items-center justify-between px-4 py-4">
 										<div class="flex items-center space-x-2">
-											<img src="/logo.png" alt="88Logistics mobile logo" class="h-8 w-auto" />
+											<picture>
+												<source srcset={logo} type="image/webp" />
+												<img
+													src={fallbacklogo}
+													alt="88Logistics company logo"
+													class="size-8 rounded-sm"
+													width="32"
+													height="32"
+												/>
+											</picture>
+
 											<span class="text-xl font-bold">88Logistics</span>
 										</div>
 									</div>
@@ -171,3 +218,9 @@
 		</div>
 	</nav>
 </header>
+
+<style>
+	header {
+		view-transition-name: header;
+	}
+</style>

@@ -1,17 +1,25 @@
 <script lang="ts">
 	import FeatureCard from '$lib/components/Services/service-card.svelte';
 	import type { FeatureModel } from '$lib/interface/feature';
-	import { HandshakeIcon, Laptop, WarehouseIcon, Workflow } from '@lucide/svelte';
 	import Heading from '$lib/components/Heading.svelte';
-	import BlureFade from '../Animation/BlureFade.svelte';
+
+	//icons import
+	import Handshake from '@lucide/svelte/icons/handshake';
+	import Laptop from '@lucide/svelte/icons/laptop';
+	import WarehouseIcon from '@lucide/svelte/icons/warehouse';
+	import Workflow from '@lucide/svelte/icons/workflow';
+
 	import { m } from '$lib/paraglide/messages';
+	import BlureFade from '../Animation/BlureFade.svelte';
+	
+	
 	const feature_card_items: FeatureModel[] = [
 		{
 			id: 1,
 			href: '/contact-us',
 			title: m.small_born_stingray_cry(),
 			body: m.knotty_weary_wasp_adapt(),
-			icon: HandshakeIcon,
+			icon: Handshake,
 		},
 		{
 			id: 2,
