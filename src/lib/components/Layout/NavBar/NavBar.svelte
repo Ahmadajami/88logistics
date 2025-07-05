@@ -1,19 +1,23 @@
 <script lang="ts">
-	import * as Sheet from '$lib/components/ui/sheet/index.js';
-	import { Button } from '$lib/components/ui/button';
+	//Paraglide js import
 	import { m } from '$lib/paraglide/messages';
 	import { getLocale, localizeHref, setLocale } from '$lib/paraglide/runtime';
-	import Theme from './Theme.svelte';
-	import LanguagesNav from './languages-nav.svelte';
-	import syria from '$lib/icon/sy.svg';
-	import uk from '$lib/icon/gb.svg';
 
+	//Components Import
+	import * as Sheet from '$lib/components/ui/sheet/index.js';
+	import { Button } from '$lib/components/ui/button';
+	import Theme from '$lib/components/Layout/NavBar/Theme.svelte';
+	import LanguagesNav from '$lib/components/Layout/NavBar/languages-nav.svelte';
+	import Separator from '$lib/components/ui/separator/separator.svelte';
+
+	//Images Import
 	import logo from '$lib/images/88-logistics-logo.webp';
 	import fallbacklogo from '$lib/images/88-logistics-logo-fallback.png';
 
-	import Separator from '$lib/components/ui/separator/separator.svelte';
-
 	//Icons Import
+	import syria from '$lib/icon/sy.svg';
+	import uk from '$lib/icon/gb.svg';
+	//Lucide Icons Import
 	import Menu from '@lucide/svelte/icons/menu';
 	import Handshake from '@lucide/svelte/icons/handshake';
 	import Settings from '@lucide/svelte/icons/settings';
@@ -26,7 +30,7 @@
 	let isOpen = $state(false);
 	type NavItem = {
 		title: string;
-		href?: string;
+		href: string;
 		selected?: boolean;
 		external?: boolean;
 		label?: string;
@@ -66,16 +70,13 @@
 	]);
 
 	$effect(() => {
-		// Get the current URL's hash or pathname
-		const currentPath = page.url.hash || localizeHref(page.url.pathname);
+		const currentPath = page.url.hash
+			? localizeHref(`/#${page.url.hash.slice(1)}`)
+			: localizeHref(page.url.pathname);
 
-		// Iterate through the items and update the 'selected' property directly.
 		navigationItems.forEach((navItem) => {
 			navItem.selected = navItem.href === currentPath;
 		});
-
-		// You can log the updated array to see the changes
-		console.log('Navigation items updated:', navigationItems);
 	});
 
 	function closeSheet() {

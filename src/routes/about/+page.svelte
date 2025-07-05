@@ -3,32 +3,40 @@
 	import Heading from '$lib/components/Heading.svelte';
 	import { Separator } from '$lib/components/ui/separator/index.js';
 	import { m } from '$lib/paraglide/messages';
-	import { Eye, PackageSearch, Settings } from '@lucide/svelte';
-
+	import { getLocale } from '$lib/paraglide/runtime';
+	import Settings from '@lucide/svelte/icons/settings';
+	import Eye from '@lucide/svelte/icons/eye';
+	import Combine from '@lucide/svelte/icons/combine';
+	import PackageSearch from '@lucide/svelte/icons/package-search';
+	/*في عام 2006، تم تأسيس شركة أبناء عاطف العجمي في دولة الإمارات العربية المتحدة، برأس الخيمة.*/
 	let timeLine = [
 		{
 			id: 1,
-			title: '1. Start As AASCO.LLc',
-			content:
-				"Select the component that best suits your needs from Eldora UI's versatile collection, designed to simplify and enhance your development process.",
+			title: m.game_noble_penguin_relish(),
+			content: m.ago_flaky_starfish_stop(),
 			image: 'https://i.pinimg.com/736x/ca/aa/49/caaa49d386d84f2d037d0abcc919778f.jpg',
-			icon: Settings,
+			icon: Settings, // Assuming 'Settings' is an imported icon component
 		},
 		{
 			id: 2,
-			title: '2. Upgrade into Distribution Company',
-			content:
-				'Enhance functionality by incorporating utility helpers that align with the selected component, ensuring seamless integration and customization.',
+			title: m.bad_suave_snail_endure(),
+			content: m.white_flaky_crocodile_drop(),
 			image: 'https://i.pinimg.com/736x/a5/dc/0a/a5dc0af50d185b7f9111949b17e17e1a.jpg',
-			icon: PackageSearch,
+			icon: PackageSearch, // Assuming 'PackageSearch' is an imported icon component
 		},
 		{
 			id: 3,
-			title: '3. Now At 88Logistics',
-			content:
-				"Simply copy and paste the provided code into your project, making the process quick and hassle-free. You're now ready to see the magic in action!",
+			title: m.late_witty_insect_blink(),
+			content: m.smug_slow_mongoose_pinch(),
 			image: 'https://i.pinimg.com/736x/b1/b9/c2/b1b9c230143fb0d8540eabe5b74adf27.jpg',
-			icon: Eye,
+			icon: Eye, // Assuming 'Eye' is an imported icon component
+		},
+		{
+			id: 4, // Added a new item for the final merge
+			title: m.few_bland_grebe_leap(),
+			content: m.pretty_sour_wallaby_clip(),
+			image: 'https://i.pinimg.com/736x/ca/aa/49/caaa49d386d84f2d037d0abcc919778f.jpg', // You might want a different image for this step
+			icon: Combine,
 		},
 	];
 </script>
@@ -44,8 +52,9 @@
 		<Separator orientation="horizontal" class="w-full " />
 	</div>
 </section>
-<Timeline data={timeLine} />
-
+<section id="88Logistics TimeLine" class="sm:p-0 md:p-10">
+	<Timeline data={timeLine} linePosition={getLocale() === 'ar' ? 'right' : 'left'} />
+</section>
 <section class="h-[20vh]"></section>
 <Separator orientation="horizontal" class="w-full " />
 <section class="w-full px-6 py-12">

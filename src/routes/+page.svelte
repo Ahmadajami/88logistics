@@ -10,6 +10,7 @@
 	import { type InquiryFormSchema } from '$lib/schema/contact';
 	import { type SuperValidated, type Infer } from 'sveltekit-superforms';
 	import Contactus from '$lib/components/ConatactUs/Contactus.svelte';
+	import { localizeHref } from '$lib/paraglide/runtime';
 
 	let isMobile = $state(false);
 
