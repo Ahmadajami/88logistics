@@ -10,7 +10,10 @@
 	import { type InquiryFormSchema } from '$lib/schema/contact';
 	import { type SuperValidated, type Infer } from 'sveltekit-superforms';
 	import Contactus from '$lib/components/ConatactUs/Contactus.svelte';
-	import { localizeHref } from '$lib/paraglide/runtime';
+	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
+	import { page } from '$app/state';
+	import { seo } from '$lib';
+	import { get } from 'svelte/store';
 
 	let isMobile = $state(false);
 
@@ -87,11 +90,34 @@
 			title: m.knotty_chunky_cowfish_sing(),
 		},
 	];
+	let currentLanguage = $derived(getLocale() == 'ar' ? 'ar' : 'en');
+	let meta = $derived(currentLanguage === 'ar' ? seo.ar : seo.en);
 </script>
 
 <svelte:head>
-	<title>88Logistcs</title>
+	<title>{meta.title}</title>
+	<meta name="description" content={meta.description} />
+	<meta name="keywords" content={meta.keywords} />
+
+	<!-- Open Graph -->
+	<meta property="og:title" content={meta.og_title} />
+	<meta property="og:description" content={meta.og_description} />
+	<meta property="og:url" content={page.url.toString()} />
+	<meta property="og:site_name" content={meta.og_title?.split(' | ')[0]} />
+	<meta property="og:locale" content={meta.og_locale} />
+	<meta property="og:type" content={meta.og_type} />
+	<meta property="og:image" content={`${page.url}/logo.webp`} />
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content={meta.twitter_card} />
+	<meta name="twitter:title" content={meta.twitter_title} />
+	<meta name="twitter:description" content={meta.twitter_description} />
+	<meta name="twitter:image" content={`${page.url}/logo.webp`} />
+
+	<!-- Canonical -->
+	<link rel="canonical" href={page.url.toString()} />
 </svelte:head>
+
 {#snippet enjoyed_by()}
 	<div class="mt-8">
 		<h2 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">
