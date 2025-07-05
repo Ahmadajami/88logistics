@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # You can add a sitemap URL here if you have one
-# Sitemap: https://localhost:5173/sitemap.xml
+# Sitemap: https://88logistics.vercel.app/sitemap.xml
