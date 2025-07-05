@@ -57,18 +57,17 @@
 	<meta property="og:site_name" content={meta.og_title?.split(' | ')[0]} />
 	<meta property="og:locale" content={meta.og_locale} />
 	<meta property="og:type" content={meta.og_type} />
-	<meta property="og:image" content={`${page.url}/logo.webp`} />
+	<meta property="og:image" content={`${page.url.origin}/logo.webp`} />
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content={meta.twitter_card} />
 	<meta name="twitter:title" content={meta.twitter_title} />
 	<meta name="twitter:description" content={meta.twitter_description} />
-	<meta name="twitter:image" content={`${page.url}/logo.webp`} />
+	<meta name="twitter:image" content={`${page.url.origin}/logo.webp`} />
 
 	<!-- Canonical -->
 	<link rel="canonical" href={page.url.toString()} />
 </svelte:head>
-
 <section class=" my-10">
 	<div class=" my-c mx-auto">
 		<div class="ml-10">
