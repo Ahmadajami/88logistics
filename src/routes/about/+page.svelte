@@ -8,6 +8,8 @@
 	import Eye from '@lucide/svelte/icons/eye';
 	import Combine from '@lucide/svelte/icons/combine';
 	import PackageSearch from '@lucide/svelte/icons/package-search';
+	import { seo } from '$lib';
+	import { page } from '$app/state';
 	/*في عام 2006، تم تأسيس شركة أبناء عاطف العجمي في دولة الإمارات العربية المتحدة، برأس الخيمة.*/
 	let timeLine = [
 		{
@@ -39,7 +41,33 @@
 			icon: Combine,
 		},
 	];
+	let currentLanguage = $derived(getLocale() == 'ar' ? 'ar' : 'en');
+	let meta = $derived(currentLanguage === 'ar' ? seo.ar : seo.en);
 </script>
+
+<svelte:head>
+	<title>{meta.title}</title>
+	<meta name="description" content={meta.description} />
+	<meta name="keywords" content={meta.keywords} />
+
+	<!-- Open Graph -->
+	<meta property="og:title" content={meta.og_title} />
+	<meta property="og:description" content={meta.og_description} />
+	<meta property="og:url" content={page.url.toString()} />
+	<meta property="og:site_name" content={meta.og_title?.split(' | ')[0]} />
+	<meta property="og:locale" content={meta.og_locale} />
+	<meta property="og:type" content={meta.og_type} />
+	<meta property="og:image" content={`${page.url}/logo.webp`} />
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content={meta.twitter_card} />
+	<meta name="twitter:title" content={meta.twitter_title} />
+	<meta name="twitter:description" content={meta.twitter_description} />
+	<meta name="twitter:image" content={`${page.url}/logo.webp`} />
+
+	<!-- Canonical -->
+	<link rel="canonical" href={page.url.toString()} />
+</svelte:head>
 
 <section class=" my-10">
 	<div class=" my-c mx-auto">
