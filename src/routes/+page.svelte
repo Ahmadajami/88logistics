@@ -5,15 +5,16 @@
 	import { m } from '$lib/paraglide/messages';
 	import Services from '$lib/components/Services/Services.svelte';
 	import { Check } from '@lucide/svelte';
-	import Partners from '$lib/components/Partner/Partners.svelte';
+
 	import Team from '$lib/components/Team/Team.svelte';
 	import { type InquiryFormSchema } from '$lib/schema/contact';
 	import { type SuperValidated, type Infer } from 'sveltekit-superforms';
 	import Contactus from '$lib/components/ConatactUs/Contactus.svelte';
-	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
+	import { getLocale } from '$lib/paraglide/runtime';
 	import { page } from '$app/state';
 	import { seo } from '$lib';
-	import { get } from 'svelte/store';
+
+	import Partners from '$lib/components/Partner/Partners.svelte';
 
 	let isMobile = $state(false);
 

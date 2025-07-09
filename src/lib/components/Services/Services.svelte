@@ -11,8 +11,7 @@
 
 	import { m } from '$lib/paraglide/messages';
 	import BlureFade from '../Animation/BlureFade.svelte';
-	
-	
+
 	const feature_card_items: FeatureModel[] = [
 		{
 			id: 1,
@@ -38,8 +37,8 @@
 		{
 			id: 4,
 			href: '/',
-			title: m.topical_silly_niklas_advise(),
-			body: m.gaudy_ok_puffin_breathe(),
+			title: m.fancy_fair_gecko_dance(),
+			body: m.slimy_tasty_bobcat_drum(),
 			icon: Workflow, // Represents overall supply chain flow and strategic management
 		},
 	];

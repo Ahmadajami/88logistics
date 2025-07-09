@@ -1,4 +1,4 @@
-// /src/routes/sitemap.xml/+server.ts
+
 import * as sitemap from 'super-sitemap';
 import type { RequestHandler } from '@sveltejs/kit';
 import { dev } from '$app/environment';

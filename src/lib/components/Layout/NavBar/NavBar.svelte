@@ -26,6 +26,7 @@
 	import Info from '@lucide/svelte/icons/info';
 	import { type Icon as IconType } from '@lucide/svelte';
 	import { page } from '$app/state';
+	import { cn } from '$lib/utils';
 
 	let isOpen = $state(false);
 	type NavItem = {
@@ -131,14 +132,19 @@
 				<div class="flex items-center space-x-4">
 					<!-- Theme button - always visible -->
 					<Theme />
-					<div class="hidden md:block">
-						<LanguagesNav />
-					</div>
+
+					<LanguagesNav />
+
 					<!-- Mobile Menu Sheet -->
 					<div class="block md:hidden">
 						<Sheet.Root bind:open={isOpen}>
-							<Sheet.Trigger>
-								<Menu class="h-6 w-6" />
+							<Sheet.Trigger
+								class={cn(
+									"focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+									'bg-background hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 my-1 border shadow-xs',
+								)}
+							>
+								<Menu class="m-2 h-6 w-6" />
 								<span class="sr-only">Toggle menu</span>
 							</Sheet.Trigger>
 
@@ -183,34 +189,6 @@
 									</div>
 								</div>
 								<Separator />
-								<Sheet.Footer>
-									<div class="flex flex-col">
-										<Button
-											size="sm"
-											variant="ghost"
-											onclick={() => {
-												setLocale('ar');
-											}}
-										>
-											{m.silly_small_kestrel_commend()}
-											<span class="size-4">
-												<img src={syria} alt="Arabic languge Flag" />
-											</span>
-										</Button>
-										<Button
-											size="sm"
-											variant="ghost"
-											onclick={() => {
-												setLocale('en');
-											}}
-										>
-											{m.mushy_teal_carp_grin()}
-											<span class="size-4">
-												<img src={uk} alt="English languge Flag" />
-											</span>
-										</Button>
-									</div>
-								</Sheet.Footer>
 							</Sheet.Content>
 						</Sheet.Root>
 					</div>
