@@ -107,13 +107,13 @@
 	<meta property="og:site_name" content={meta.og_title?.split(' | ')[0]} />
 	<meta property="og:locale" content={meta.og_locale} />
 	<meta property="og:type" content={meta.og_type} />
-	<meta property="og:image" content={`${page.url}/logo.webp`} />
+	<meta property="og:image" content={`https://88logistics.vercel.app/logo.webp`} />
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content={meta.twitter_card} />
 	<meta name="twitter:title" content={meta.twitter_title} />
 	<meta name="twitter:description" content={meta.twitter_description} />
-	<meta name="twitter:image" content={`${page.url}/logo.webp`} />
+	<meta name="twitter:image" content={`https://88logistics.vercel.app/logo.webp`} />
 
 	<!-- Canonical -->
 	<link rel="canonical" href={page.url.toString()} />
